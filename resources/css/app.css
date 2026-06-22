@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
+
+@layer base {
+    :root {
+        --atelier-ink: #27211d;
+        --atelier-muted: #756a60;
+        --atelier-line: #e6ddd2;
+        --atelier-paper: #fffaf3;
+        --atelier-cloth: #f5eadc;
+        --atelier-thread: #c94a13;
+        --atelier-sage: #5f745e;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            linear-gradient(135deg, rgba(95, 116, 94, 0.08), transparent 34rem),
+            linear-gradient(315deg, rgba(201, 74, 19, 0.08), transparent 32rem),
+            var(--atelier-paper);
+        color: var(--atelier-ink);
+    }
+
+    ::selection {
+        background: #f8c8aa;
+        color: var(--atelier-ink);
+    }
+
+    input,
+    select,
+    textarea {
+        background-color: #fffdf9;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        box-shadow: 0 0 0 3px rgba(201, 74, 19, 0.15) !important;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+}
+
+@layer components {
+    .atelier-surface {
+        @apply border border-stone-200 bg-white/90 shadow-sm backdrop-blur;
+    }
+
+    .atelier-soft-surface {
+        @apply border border-stone-200 bg-stone-50/80;
+    }
+
+    .atelier-stitch {
+        background-image: linear-gradient(90deg, rgba(201, 74, 19, 0.22) 50%, transparent 50%);
+        background-position: left bottom;
+        background-repeat: repeat-x;
+        background-size: 10px 1px;
+    }
+
+    .atelier-link {
+        @apply font-semibold text-indigo-700 transition hover:text-indigo-900;
+    }
+
+    .atelier-table {
+        @apply overflow-hidden border border-stone-200 bg-white shadow-sm sm:rounded-lg;
+    }
+
+    .atelier-table thead {
+        @apply bg-stone-100/80;
+    }
+
+    .atelier-table th {
+        @apply whitespace-nowrap px-4 py-3 text-left text-xs font-bold uppercase text-stone-600;
+        letter-spacing: 0;
+    }
+
+    .atelier-table td {
+        @apply border-t border-stone-100 px-4 py-3 align-middle;
+    }
+
+    .atelier-table tbody tr {
+        @apply transition hover:bg-orange-50/35;
+    }
+}
