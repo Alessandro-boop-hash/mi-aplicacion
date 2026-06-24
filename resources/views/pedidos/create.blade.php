@@ -13,6 +13,8 @@
         'hasCliente' => (bool) $clienteActual,
         'modoCliente' => old('modo_cliente', 'existente'),
         'clienteId' => old('cliente_id', ''),
+        'clienteNombre' => old('cliente_nombre', ''),
+        'clienteNumeroDocumento' => old('cliente_numero_documento', ''),
         'oldDetalles' => old('detalles', [['modelo' => '', 'talla' => '', 'cantidad' => 1, 'precio_unitario' => '']]),
         'oldMontoPagado' => old('monto_pagado', ''),
         'userEmail' => auth()->user()->email,

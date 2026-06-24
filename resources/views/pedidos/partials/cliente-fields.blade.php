@@ -1,6 +1,6 @@
 <div>
     <label for="cliente_nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre / Razón social *</label>
-    <input type="text" name="cliente_nombre" id="cliente_nombre" value="{{ old('cliente_nombre') }}"
+    <input type="text" name="cliente_nombre" id="cliente_nombre" value="{{ old('cliente_nombre') }}" x-model="clienteNombre"
            class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
 </div>
 <div>
@@ -16,7 +16,7 @@
 </div>
 <div>
     <label for="cliente_numero_documento" class="block text-sm font-medium text-gray-700 mb-1">N.º documento *</label>
-    <input type="text" name="cliente_numero_documento" id="cliente_numero_documento" value="{{ old('cliente_numero_documento') }}"
+    <input type="text" name="cliente_numero_documento" id="cliente_numero_documento" value="{{ old('cliente_numero_documento') }}" x-model="clienteNumeroDocumento"
            class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
 </div>
 <div>

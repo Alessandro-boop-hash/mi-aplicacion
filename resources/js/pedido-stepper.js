@@ -13,6 +13,8 @@ document.addEventListener('alpine:init', () => {
             precio_unitario: parseFloat(d.precio_unitario) || 0,
         })),
         montoPagado: parseFloat(config.oldMontoPagado) || 0,
+        clienteNombre: config.clienteNombre || '',
+        clienteNumeroDocumento: config.clienteNumeroDocumento || '',
 
         init() {
             if (!config.hasErrors) {
@@ -74,16 +76,16 @@ document.addEventListener('alpine:init', () => {
                     return this.clienteId !== '';
                 }
 
-                return document.getElementById('cliente_nombre')?.value.trim() !== ''
-                    && document.getElementById('cliente_numero_documento')?.value.trim() !== '';
+                return this.clienteNombre.trim() !== ''
+                    && this.clienteNumeroDocumento.trim() !== '';
             }
 
             if (this.hasCliente) {
                 return true;
             }
 
-            return document.getElementById('cliente_nombre')?.value.trim() !== ''
-                && document.getElementById('cliente_numero_documento')?.value.trim() !== '';
+            return this.clienteNombre.trim() !== ''
+                && this.clienteNumeroDocumento.trim() !== '';
         },
         step2Valid() {
             if (!this.cantidadValida) {
