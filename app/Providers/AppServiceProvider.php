@@ -59,5 +59,9 @@ class AppServiceProvider extends ServiceProvider
             UserRole::Admin,
             UserRole::Cliente,
         ));
+
+        if (config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
     }
 }
