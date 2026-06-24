@@ -6,5 +6,4 @@ vendor
 .phpunit.result.cache
 tests
 phpunit.xml
-docker-entrypoint.sh
-Dockerfile
+
