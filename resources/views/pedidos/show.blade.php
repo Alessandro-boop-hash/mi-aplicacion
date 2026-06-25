@@ -4,10 +4,16 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Pedido #{{ $pedido->id }}
             </h2>
-            <a href="{{ route($routePrefix.'.pedidos.index') }}"
-               class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">
-                ← Volver al listado
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="{{ route('pedidos.pdf', $pedido) }}"
+                   class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-xs font-semibold uppercase tracking-widest rounded-md hover:bg-indigo-700">
+                    Exportar PDF
+                </a>
+                <a href="{{ route($routePrefix.'.pedidos.index') }}"
+                   class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">
+                    ← Volver al listado
+                </a>
+            </div>
         </div>
     </x-slot>
 

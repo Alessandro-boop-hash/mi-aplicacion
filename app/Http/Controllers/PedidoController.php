@@ -217,4 +217,13 @@ class PedidoController extends Controller
             'precio_total' => round($precioTotal, 2),
         ];
     }
+
+    public function descargarPdf(Pedido $pedido)
+    {
+        $this->authorize('view', $pedido);
+        $pedido->load(['cliente', 'detalles', 'historialEstados.user']);
+
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pedidos.pdf', compact('pedido'));
+        return $pdf->download('pedido-' . str_pad($pedido->id, 4, '0', STR_PAD_LEFT) . '.pdf');
+    }
 }

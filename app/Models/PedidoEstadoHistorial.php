@@ -24,6 +24,25 @@ class PedidoEstadoHistorial extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        static::created(function (PedidoEstadoHistorial $historial) {
+            $pedido = $historial->pedido;
+            if ($pedido && $pedido->cliente) {
+                $cliente = $pedido->cliente;
+                if ($cliente->email) {
+                    $notification = new \App\Notifications\PedidoEstadoActualizado($pedido, $historial->comentario ?? '');
+                    if ($cliente->user) {
+                        $cliente->user->notify($notification);
+                    } else {
+                        \Illuminate\Support\Facades\Notification::route('mail', $cliente->email)
+                            ->notify($notification);
+                    }
+                }
+            }
+        });
+    }
+
     public function pedido(): BelongsTo
     {
         return $this->belongsTo(Pedido::class);

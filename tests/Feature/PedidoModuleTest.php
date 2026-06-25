@@ -164,4 +164,66 @@ class PedidoModuleTest extends TestCase
             ->assertSee('#'.$pedido->id)
             ->assertSee('Moda Express');
     }
+
+    public function test_can_download_pedido_pdf(): void
+    {
+        $vendedor = User::factory()->create(['role' => UserRole::Vendedor]);
+        $cliente = Cliente::create([
+            'nombre' => 'Moda Express',
+            'tipo_documento' => TipoDocumento::Ruc,
+            'numero_documento' => '20111222333',
+        ]);
+        $pedido = Pedido::create([
+            'cliente_id' => $cliente->id,
+            'fecha' => now()->toDateString(),
+            'cantidad_total' => 12,
+            'precio_total' => 420,
+            'anticipo' => 210,
+            'saldo_pendiente' => 210,
+            'estado' => PedidoEstado::EnDiseno,
+        ]);
+
+        $response = $this->actingAs($vendedor)->get(route('pedidos.pdf', $pedido));
+
+        $response->assertOk();
+        $response->assertHeader('Content-Type', 'application/pdf');
+    }
+
+    public function test_notification_sent_on_pedido_status_history_created(): void
+    {
+        \Illuminate\Support\Facades\Notification::fake();
+
+        $clienteUser = User::factory()->create(['role' => UserRole::Cliente]);
+        $cliente = Cliente::create([
+            'user_id' => $clienteUser->id,
+            'nombre' => 'Moda Express',
+            'tipo_documento' => TipoDocumento::Ruc,
+            'numero_documento' => '20111222333',
+            'email' => 'client@test.com',
+        ]);
+        $pedido = Pedido::create([
+            'cliente_id' => $cliente->id,
+            'fecha' => now()->toDateString(),
+            'cantidad_total' => 12,
+            'precio_total' => 420,
+            'anticipo' => 210,
+            'saldo_pendiente' => 210,
+            'estado' => PedidoEstado::EnDiseno,
+        ]);
+
+        \App\Models\PedidoEstadoHistorial::create([
+            'pedido_id' => $pedido->id,
+            'estado' => PedidoEstado::EnProduccion,
+            'comentario' => 'Lote iniciado.',
+            'user_id' => $clienteUser->id,
+        ]);
+
+        \Illuminate\Support\Facades\Notification::assertSentTo(
+            $clienteUser,
+            \App\Notifications\PedidoEstadoActualizado::class,
+            function ($notification) use ($pedido) {
+                return $notification->pedido->id === $pedido->id;
+            }
+        );
+    }
 }

@@ -43,6 +43,13 @@ class ReclamoController extends Controller
             return back()->with('error', 'El pedido seleccionado no existe.');
         }
 
+        $user = $request->user();
+        $clienteId = $user->cliente ? $user->cliente->id : null;
+
+        if (!$clienteId || $pedido->cliente_id !== $clienteId) {
+            return back()->with('error', 'El pedido seleccionado no le pertenece o no es válido.');
+        }
+
         if ($pedido->estado !== \App\Enums\PedidoEstado::Entregado) {
             return back()->with('error', 'Solo se pueden registrar reclamos para pedidos entregados.');
         }

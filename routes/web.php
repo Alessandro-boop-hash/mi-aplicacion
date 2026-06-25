@@ -8,6 +8,7 @@ use App\Http\Controllers\LoteEstampadoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReclamoController;
+use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -52,6 +53,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->where('version', 'original|marca-agua')
         ->name('disenos.archivo');
 
+    Route::get('/pedidos/{pedido}/pdf', [PedidoController::class, 'descargarPdf'])
+        ->name('pedidos.pdf');
+
     Route::middleware('role:operario_corte')->prefix('operario')->name('operario.')->group(function () {
         Route::get('/corte', [LoteCorteController::class, 'index'])->name('corte.index');
         Route::get('/corte/pedidos/{pedido}', [LoteCorteController::class, 'create'])->name('corte.create');
@@ -86,7 +90,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
         Route::get('/pedidos/{pedido}', [PedidoController::class, 'show'])->name('pedidos.show');
         Route::view('/inventario', 'admin.inventario.index')->name('inventario.index');
-        Route::view('/reportes', 'admin.reportes.index')->name('reportes.index');
+        Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.index');
+        Route::get('/reportes/pdf', [ReporteController::class, 'descargarPdf'])->name('reportes.pdf');
     });
 });
 

@@ -124,4 +124,43 @@ class ReclamoModuleTest extends TestCase
         $response->assertSessionHas('error', 'Solo se pueden registrar reclamos para pedidos entregados.');
         $this->assertDatabaseCount('reclamos', 0);
     }
+
+    public function test_cliente_cannot_register_reclamo_for_another_client_pedido(): void
+    {
+        $otroUser = User::factory()->create(['role' => UserRole::Cliente]);
+        $otroCliente = Cliente::create([
+            'user_id' => $otroUser->id,
+            'nombre' => 'Otro Cliente',
+            'tipo_documento' => TipoDocumento::Dni,
+            'numero_documento' => '88888888',
+        ]);
+        $pedidoOtro = Pedido::create([
+            'cliente_id' => $otroCliente->id,
+            'fecha' => now()->subDays(10)->toDateString(),
+            'cantidad_total' => 20,
+            'precio_total' => 500,
+            'anticipo' => 250,
+            'saldo_pendiente' => 250,
+            'estado' => PedidoEstado::Entregado,
+        ]);
+
+        \Illuminate\Support\Facades\DB::table('pedido_estado_historial')->insert([
+            'pedido_id' => $pedidoOtro->id,
+            'estado' => PedidoEstado::Entregado->value,
+            'user_id' => $otroUser->id,
+            'comentario' => 'Pedido entregado.',
+            'created_at' => now()->subDays(2),
+            'updated_at' => now()->subDays(2),
+        ]);
+
+        $response = $this->actingAs($this->userCliente)->post(route('cliente.reclamos.store'), [
+            'pedido_id' => $pedidoOtro->id,
+            'motivo' => 'Intento de reclamo en pedido ajeno.',
+        ]);
+
+        $response->assertRedirect();
+        $response->assertSessionHas('error', 'El pedido seleccionado no le pertenece o no es válido.');
+        $this->assertDatabaseCount('reclamos', 0);
+    }
 }
+
