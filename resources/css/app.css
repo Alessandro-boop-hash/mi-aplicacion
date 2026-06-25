@@ -8,13 +8,13 @@
 
 @layer base {
     :root {
-        --atelier-ink: #27211d;
-        --atelier-muted: #756a60;
-        --atelier-line: #e6ddd2;
-        --atelier-paper: #fffaf3;
-        --atelier-cloth: #f5eadc;
-        --atelier-thread: #c94a13;
-        --atelier-sage: #5f745e;
+        --atelier-ink: #1c1917; /* stone-900 */
+        --atelier-muted: #78716c; /* stone-500 */
+        --atelier-line: #e7e5e4; /* stone-200 */
+        --atelier-paper: #ffffff; /* white */
+        --atelier-cloth: #f8f8f9; /* adidas light grey studio */
+        --atelier-thread: #000000; /* black */
+        --atelier-sage: #000000;
     }
 
     html {
@@ -22,74 +22,225 @@
     }
 
     body {
-        background:
-            linear-gradient(135deg, rgba(95, 116, 94, 0.08), transparent 34rem),
-            linear-gradient(315deg, rgba(201, 74, 19, 0.08), transparent 32rem),
-            var(--atelier-paper);
-        color: var(--atelier-ink);
+        background-color: #ffffff !important;
+        background-image: none !important;
+        color: #1c1917 !important;
     }
 
     ::selection {
-        background: #f8c8aa;
-        color: var(--atelier-ink);
+        background: #000000 !important;
+        color: #ffffff !important;
     }
 
-    input,
-    select,
-    textarea {
-        background-color: #fffdf9;
+    /* Force sharp square corners globally for the Adidas aesthetic */
+    *, *::before, *::after {
+        border-radius: 0px !important;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-        box-shadow: 0 0 0 3px rgba(201, 74, 19, 0.15) !important;
+    /* Input focus overrides */
+    input, select, textarea {
+        background-color: #ffffff !important;
+        border-color: #d6d3d1 !important;
+        border-width: 1px !important;
     }
 
+    input:focus, select:focus, textarea:focus {
+        border-color: #000000 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    /* Global Table Overrides */
     table {
-        border-collapse: separate;
-        border-spacing: 0;
+        border-collapse: collapse !important;
+        border-spacing: 0 !important;
+        width: 100% !important;
+        border: 1px solid #e7e5e4 !important;
+    }
+
+    thead, thead tr, .bg-gray-50 {
+        background-color: #f8f8f9 !important;
+    }
+
+    th {
+        text-transform: uppercase !important;
+        font-weight: 900 !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.08em !important;
+        color: #1c1917 !important;
+        border-bottom: 2px solid #000000 !important;
+        padding: 0.875rem 1rem !important;
+    }
+
+    td {
+        border-top: 1px solid #e7e5e4 !important;
+        padding: 0.875rem 1rem !important;
+        color: #44403c !important;
+        font-size: 0.875rem !important;
+    }
+
+    tbody tr:hover, tr.hover\:bg-gray-50:hover {
+        background-color: #f8f8f9 !important;
+    }
+
+    /* Primary Button Overrides */
+    button[type="submit"],
+    .bg-indigo-600,
+    .bg-indigo-700,
+    .bg-orange-500,
+    .bg-orange-600,
+    .bg-gray-800,
+    .bg-stone-900,
+    .bg-stone-950,
+    a.bg-indigo-600,
+    a.bg-indigo-700,
+    a.bg-orange-500,
+    a.bg-orange-600,
+    a.bg-gray-800,
+    a.bg-stone-900,
+    a.bg-stone-950 {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border: 2px solid #000000 !important;
+        text-transform: uppercase !important;
+        font-weight: 900 !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.1em !important;
+        padding: 0.75rem 1.5rem !important;
+        transition: all 0.15s ease-in-out !important;
+        box-shadow: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    button[type="submit"]:hover,
+    .bg-indigo-600:hover,
+    .bg-indigo-700:hover,
+    .bg-orange-500:hover,
+    .bg-orange-600:hover,
+    .bg-gray-800:hover,
+    .bg-stone-900:hover,
+    .bg-stone-950:hover,
+    a.bg-indigo-600:hover,
+    a.bg-indigo-700:hover,
+    a.bg-orange-500:hover,
+    a.bg-orange-600:hover,
+    a.bg-gray-800:hover,
+    a.bg-stone-900:hover,
+    a.bg-stone-950:hover {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-color: #000000 !important;
+    }
+
+    /* Secondary / White Button Overrides */
+    .bg-white.border,
+    button.bg-white,
+    a.bg-white.border {
+        background-color: #ffffff !important;
+        color: #1c1917 !important;
+        border: 2px solid #d6d3d1 !important;
+        text-transform: uppercase !important;
+        font-weight: 800 !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.05em !important;
+        padding: 0.75rem 1.5rem !important;
+        transition: all 0.15s ease-in-out !important;
+        box-shadow: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .bg-white.border:hover,
+    button.bg-white:hover,
+    a.bg-white.border:hover {
+        border-color: #000000 !important;
+        background-color: #f8f8f9 !important;
+        color: #000000 !important;
+    }
+
+    /* Text Links Overrides */
+    a[class*="text-indigo-"],
+    a[class*="text-orange-"],
+    .text-indigo-600,
+    .text-indigo-700,
+    .text-orange-600 {
+        color: #000000 !important;
+        text-transform: uppercase !important;
+        font-weight: 900 !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.05em !important;
+        text-decoration: underline !important;
+    }
+
+    a[class*="text-indigo-"]:hover,
+    a[class*="text-orange-"]:hover,
+    .text-indigo-600:hover,
+    .text-indigo-700:hover,
+    .text-orange-600:hover {
+        color: #78716c !important;
+    }
+
+    /* Step Badges Overrides */
+    span[class*="rounded-full"].bg-indigo-600,
+    span[class*="rounded-full"].bg-green-500,
+    span[class*="rounded-full"].bg-gray-200 {
+        border-radius: 0px !important;
+        font-weight: 900 !important;
+        border: 2px solid #000000 !important;
+    }
+
+    span[class*="rounded-full"].bg-gray-200 {
+        background-color: #ffffff !important;
+        border-color: #e7e5e4 !important;
+        color: #78716c !important;
+    }
+
+    /* Badges / Status Labels Overrides */
+    span[class*="rounded-full"] {
+        border-radius: 0px !important;
+        text-transform: uppercase !important;
+        font-weight: 850 !important;
+        font-size: 0.65rem !important;
+        letter-spacing: 0.05em !important;
+        padding: 0.25rem 0.5rem !important;
     }
 }
 
 @layer components {
     .atelier-surface {
-        @apply border border-stone-200 bg-white/90 shadow-sm backdrop-blur;
+        border: 1px solid #000000 !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+        border-radius: 0px !important;
     }
 
     .atelier-soft-surface {
-        @apply border border-stone-200 bg-stone-50/80;
+        border: 1px solid #e7e5e4 !important;
+        background-color: #f8f8f9 !important;
+        border-radius: 0px !important;
     }
 
     .atelier-stitch {
-        background-image: linear-gradient(90deg, rgba(201, 74, 19, 0.22) 50%, transparent 50%);
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.22) 50%, transparent 50%);
         background-position: left bottom;
         background-repeat: repeat-x;
         background-size: 10px 1px;
     }
 
     .atelier-link {
-        @apply font-semibold text-indigo-700 transition hover:text-indigo-900;
+        color: #000000 !important;
+        text-transform: uppercase !important;
+        font-weight: 900 !important;
+        text-decoration: underline !important;
     }
 
     .atelier-table {
-        @apply overflow-hidden border border-stone-200 bg-white shadow-sm sm:rounded-lg;
-    }
-
-    .atelier-table thead {
-        @apply bg-stone-100/80;
-    }
-
-    .atelier-table th {
-        @apply whitespace-nowrap px-4 py-3 text-left text-xs font-bold uppercase text-stone-600;
-        letter-spacing: 0;
-    }
-
-    .atelier-table td {
-        @apply border-t border-stone-100 px-4 py-3 align-middle;
-    }
-
-    .atelier-table tbody tr {
-        @apply transition hover:bg-orange-50/35;
+        border: 1px solid #e7e5e4 !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+        border-radius: 0px !important;
     }
 }
