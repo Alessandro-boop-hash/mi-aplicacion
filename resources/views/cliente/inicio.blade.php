@@ -7,13 +7,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
             {{-- Hero Section --}}
             <div class="relative overflow-hidden rounded-2xl p-8 sm:p-12 text-white shadow-xl"
-                 style="background: linear-gradient(135deg, #18181b 0%, #09090b 100%); border: 1px solid rgba(255,255,255,0.05);">
+                  style="background: radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.18), transparent 50%), linear-gradient(135deg, #1c1917 0%, #0c0a09 100%); border: 1px solid rgba(255,255,255,0.05);">
                 <div class="relative z-10 max-w-2xl space-y-4">
-                    <span class="inline-flex rounded-full bg-orange-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-400 border border-orange-500/20">
+                    <span class="inline-flex rounded-full bg-orange-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-400 border border-orange-500/20 animate-pulse">
                         Colección Deportiva 2026
                     </span>
                     <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl text-white">
-                        MARTE Sportswear
+                        MARTE
                     </h1>
                     <p class="text-lg text-stone-300">
                         Prendas deportivas de alta resistencia y rendimiento. Diseños premium adaptados a las exigencias de tu marca o equipo corporativo.
@@ -178,6 +178,78 @@
                                 </p>
                             </div>
                             <button @click="openAddModal('Mochila Deportiva', 90.00)" 
+                                    class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs uppercase py-2.5 px-4 rounded-lg shadow-sm transition duration-150">
+                                + Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+
+                    {{-- Prenda 7: Termica --}}
+                    <div class="group overflow-hidden rounded-xl bg-white border border-stone-200 shadow-sm transition hover:shadow-md flex flex-col justify-between">
+                        <div class="aspect-square w-full overflow-hidden bg-gray-150 relative">
+                            <img src="/images/prendas/termica.png" alt="Camiseta Térmica Pro" 
+                                 class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-center">
+                                    <h4 class="font-bold text-gray-900 text-lg">Camiseta Térmica Pro</h4>
+                                    <span class="text-base font-bold text-stone-900">S/ 45.00</span>
+                                </div>
+                                <p class="text-xs font-semibold text-orange-600 uppercase tracking-wider">Línea Térmica</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">
+                                    Polera de manga larga con aislamiento térmico y ajuste de compresión para conservar el calor durante entrenamientos en climas fríos.
+                                </p>
+                            </div>
+                            <button @click="openAddModal('Camiseta Térmica Pro', 45.00)" 
+                                    class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs uppercase py-2.5 px-4 rounded-lg shadow-sm transition duration-150">
+                                + Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+
+                    {{-- Prenda 8: Jogger --}}
+                    <div class="group overflow-hidden rounded-xl bg-white border border-stone-200 shadow-sm transition hover:shadow-md flex flex-col justify-between">
+                        <div class="aspect-square w-full overflow-hidden bg-gray-150 relative">
+                            <img src="/images/prendas/jogger.png" alt="Jogger Active Elite" 
+                                 class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-center">
+                                    <h4 class="font-bold text-gray-900 text-lg">Jogger Active Elite</h4>
+                                    <span class="text-base font-bold text-stone-900">S/ 60.00</span>
+                                </div>
+                                <p class="text-xs font-semibold text-orange-600 uppercase tracking-wider">Línea Performance</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">
+                                    Pantalón jogger slim-fit con bolsillos impermeables con cremallera, puños elásticos y tejido elástico multidireccional ultra suave.
+                                </p>
+                            </div>
+                            <button @click="openAddModal('Jogger Active Elite', 60.00)" 
+                                    class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs uppercase py-2.5 px-4 rounded-lg shadow-sm transition duration-150">
+                                + Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+
+                    {{-- Prenda 9: Medias --}}
+                    <div class="group overflow-hidden rounded-xl bg-white border border-stone-200 shadow-sm transition hover:shadow-md flex flex-col justify-between">
+                        <div class="aspect-square w-full overflow-hidden bg-gray-150 relative">
+                            <img src="/images/prendas/medias.png" alt="Medias Crew Técnicas" 
+                                 class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-center">
+                                    <h4 class="font-bold text-gray-900 text-lg">Medias Crew (Pack x3)</h4>
+                                    <span class="text-base font-bold text-stone-900">S/ 18.00</span>
+                                </div>
+                                <p class="text-xs font-semibold text-orange-600 uppercase tracking-wider">Línea Accesorios</p>
+                                <p class="text-sm text-gray-600 leading-relaxed">
+                                    Medias de alta amortiguación en talón y puntera con soporte de arco elástico y canales de ventilación de alto rendimiento.
+                                </p>
+                            </div>
+                            <button @click="openAddModal('Medias Crew (Pack x3)', 18.00)" 
                                     class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs uppercase py-2.5 px-4 rounded-lg shadow-sm transition duration-150">
                                 + Añadir al carrito
                             </button>
