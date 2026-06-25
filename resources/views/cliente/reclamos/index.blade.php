@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Mis reclamos</h2>
-            <button onclick="window.dispatchEvent(new CustomEvent('open-modal'))" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            <button onclick="window.dispatchEvent(new CustomEvent('open-modal'))" class="inline-flex items-center px-4 py-2 bg-stone-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-stone-950 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 transition ease-in-out duration-150">
                 + Registrar reclamo
             </button>
         </div>
@@ -98,12 +98,12 @@
                                     </div>
                                     <div>
                                         <label for="motivo" class="block text-sm font-medium text-gray-700 mb-1">Motivo del reclamo</label>
-                                        <textarea id="motivo" name="motivo" rows="4" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm" placeholder="Describa el problema con las prendas..."></textarea>
+                                        <textarea id="motivo" name="motivo" rows="4" required class="w-full rounded-md border-gray-300 shadow-sm focus:border-stone-900 focus:ring-stone-900 sm:text-sm" placeholder="Describa el problema con las prendas..."></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-2">
-                                <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                                <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-stone-900 text-base font-medium text-white hover:bg-stone-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 sm:ml-3 sm:w-auto sm:text-sm">
                                     Guardar Reclamo
                                 </button>
                                 <button type="button" @click="modalOpen = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">

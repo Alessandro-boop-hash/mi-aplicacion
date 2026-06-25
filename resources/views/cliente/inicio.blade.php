@@ -3,40 +3,9 @@
         <h2 class="font-extrabold text-xl text-stone-900 uppercase tracking-widest leading-tight">Inicio — Catálogo de prendas</h2>
     </x-slot>
 
-    <!-- Top Announcement Bar (Adiclub style) -->
-    <div class="bg-stone-950 text-white text-center py-2 text-xs font-extrabold tracking-widest uppercase">
-        ⚡ ENVÍO GRATIS PARA MIEMBROS DE MARTE CLUB • COMPRA AHORA ⚡
-    </div>
-
     <div class="py-12" x-data="shoppingCart()" x-init="init()">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
             
-            {{-- Hero Section --}}
-            <div class="relative overflow-hidden rounded-none p-8 sm:p-12 text-white shadow-none bg-stone-900"
-                  style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; border-bottom: 4px solid #000000;">
-                <div class="relative z-10 max-w-2xl space-y-5">
-                    <span class="inline-flex rounded-none bg-white text-stone-900 px-3 py-1 text-xs font-black uppercase tracking-widest border-none">
-                        LA PASIÓN NO SE DETIENE
-                    </span>
-                    <h1 class="text-4xl font-black tracking-tighter sm:text-6xl text-white uppercase italic leading-none">
-                        MARTE
-                    </h1>
-                    <p class="text-base sm:text-lg text-stone-200 font-medium leading-relaxed max-w-lg">
-                        Sigue alentando, sigue creyendo. Equípate con lo mejor de MARTE y rinde al máximo en cada minuto de tu entrenamiento.
-                    </p>
-                    <div class="pt-4 flex flex-col sm:flex-row gap-3">
-                        <button @click="isCartOpen = true" 
-                                class="inline-flex items-center justify-center rounded-none bg-white text-stone-900 px-6 py-3.5 text-xs font-black uppercase tracking-widest hover:bg-stone-100 transition duration-150">
-                            VER CARRITO DE COMPRAS &nbsp; →
-                        </button>
-                        <a href="#catalogo" 
-                           class="inline-flex items-center justify-center rounded-none border-2 border-white bg-transparent text-white px-6 py-3.5 text-xs font-black uppercase tracking-widest hover:bg-white hover:text-stone-900 transition duration-150">
-                            EXPLORAR CATÁLOGO &nbsp; →
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             {{-- Catalog Section --}}
             <div id="catalogo" class="space-y-6 pt-4">
                 <div>

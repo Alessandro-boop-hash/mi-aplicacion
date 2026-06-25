@@ -56,7 +56,7 @@
     }
 
     /* Override text colors */
-    .text-gray-900, .text-gray-800, .text-stone-900, .text-stone-950, .text-slate-900, .text-zinc-900, .text-stone-200, .text-white {
+    .text-gray-900, .text-gray-800, .text-stone-900, .text-stone-950, .text-slate-900, .text-zinc-900 {
         color: var(--marte-text) !important;
     }
 
@@ -228,10 +228,18 @@
     }
 
     /* Dropdown alignment & look */
-    .absolute.right-0 {
+    .absolute.end-0, .absolute.right-0 {
         background-color: var(--marte-card) !important;
         border: 1px solid var(--marte-border) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+        z-index: 100 !important;
+    }
+
+    div[x-show="open"] > div {
+        background-color: var(--marte-card) !important;
+        border: 1px solid var(--marte-border) !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+        z-index: 100 !important;
     }
 
     /* Badge and statuses */

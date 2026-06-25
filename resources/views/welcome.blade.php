@@ -14,11 +14,6 @@
         @endif
     </head>
     <body class="font-sans antialiased bg-[#fafaf9] text-stone-900">
-        <!-- Top Announcement Bar -->
-        <div class="bg-black text-white text-center py-2 text-xs font-bold tracking-widest uppercase">
-            ⚡ ENVÍO GRATIS PARA MIEMBROS DE MARTE CLUB • COMPRA AHORA ⚡
-        </div>
-
         <main class="min-h-screen">
             <!-- Nav Bar -->
             <nav class="border-b border-stone-200 bg-white">
