@@ -8,16 +8,18 @@
 
 @layer base {
     :root {
-        --marte-bg: #09090b; /* Zinc 950 deep obsidian */
-        --marte-card: #141417; /* Slate dark studio card */
-        --marte-card-hover: #1b1b20;
-        --marte-primary: #e11d48; /* Mars Crimson Rose-600 */
-        --marte-primary-hover: #f43f5e;
-        --marte-primary-glow: rgba(225, 29, 72, 0.25);
-        --marte-text: #f4f4f5; /* Zinc 100 white */
-        --marte-text-muted: #a1a1aa; /* Zinc 400 space gray */
-        --marte-border: rgba(255, 255, 255, 0.08);
-        --marte-stitch: rgba(225, 29, 72, 0.35); /* Thread crimson */
+        --marte-bg: #fafaf9; /* Warm off-white */
+        --marte-card: #ffffff; /* Pure white */
+        --marte-card-hover: #f4f4f5; /* Light gray hover */
+        --marte-primary: #000000; /* Matte black */
+        --marte-primary-hover: #27272a; /* Off-black */
+        --marte-primary-glow: rgba(0, 0, 0, 0.05);
+        --marte-text: #09090b; /* Deep black */
+        --marte-text-muted: #71717a; /* Zinc gray */
+        --marte-border: #e4e4e7; /* Zinc-200 border */
+        --marte-stitch: #d4d4d8; /* Zinc-300 stitching thread */
+        --marte-accent: #ef4444; /* Mars Red */
+        --marte-accent-glow: rgba(239, 68, 68, 0.15);
     }
 
     html {
@@ -37,24 +39,24 @@
         color: #ffffff !important;
     }
 
-    /* Reset global border radius for the modern visual identity */
+    /* Reset global border radius to a clean modern rounded look */
     *, *::before, *::after {
         border-radius: 8px !important;
     }
 
-    /* Override standard Tailwind background classes */
+    /* Override standard Tailwind background classes to implement light minimalist theme */
     .bg-white, [class*="bg-white"] {
         background-color: var(--marte-card) !important;
         border-color: var(--marte-border) !important;
     }
 
-    .bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-stone-50, .bg-stone-100, .bg-stone-200 {
-        background-color: var(--marte-bg) !important;
+    .bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-stone-50, .bg-stone-100, .bg-stone-200, .bg-stone-900 {
+        background-color: var(--marte-card) !important;
         border-color: var(--marte-border) !important;
     }
 
     /* Override text colors */
-    .text-gray-900, .text-gray-800, .text-stone-900, .text-stone-950, .text-slate-900, .text-zinc-900 {
+    .text-gray-900, .text-gray-800, .text-stone-900, .text-stone-950, .text-slate-900, .text-zinc-900, .text-stone-200, .text-white {
         color: var(--marte-text) !important;
     }
 
@@ -62,9 +64,9 @@
         color: var(--marte-text-muted) !important;
     }
 
-    /* Input styles override */
+    /* Input styles override - clean white minimalist look */
     input, select, textarea {
-        background-color: #18181b !important;
+        background-color: var(--marte-card) !important;
         color: var(--marte-text) !important;
         border: 1px solid var(--marte-border) !important;
         padding: 0.625rem 1rem !important;
@@ -75,7 +77,7 @@
         border-color: var(--marte-primary) !important;
         box-shadow: 0 0 0 3px var(--marte-primary-glow) !important;
         outline: none !important;
-        background-color: #202024 !important;
+        background-color: var(--marte-card) !important;
     }
 
     /* Clean modern tables with dashed dividers */
@@ -87,7 +89,7 @@
     }
 
     thead, thead tr, .bg-gray-50 {
-        background-color: rgba(255, 255, 255, 0.02) !important;
+        background-color: #fcfcfb !important;
     }
 
     th {
@@ -108,10 +110,10 @@
     }
 
     tbody tr:hover, tr.hover\:bg-gray-50:hover {
-        background-color: rgba(255, 255, 255, 0.02) !important;
+        background-color: #fafaf9 !important;
     }
 
-    /* Primary crimson glow buttons */
+    /* Primary solid black buttons */
     button[type="submit"],
     .bg-indigo-600,
     .bg-indigo-700,
@@ -127,7 +129,7 @@
     a.bg-gray-800,
     a.bg-stone-900,
     a.bg-stone-950 {
-        background: linear-gradient(135deg, var(--marte-primary), #be123c) !important;
+        background: var(--marte-primary) !important;
         color: #ffffff !important;
         border: 1px solid var(--marte-primary) !important;
         text-transform: uppercase !important;
@@ -135,8 +137,8 @@
         font-size: 0.75rem !important;
         letter-spacing: 0.08em !important;
         padding: 0.75rem 1.5rem !important;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 4px 12px var(--marte-primary-glow) !important;
+        transition: all 0.15s ease-in-out !important;
+        box-shadow: none !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -160,9 +162,8 @@
     a.bg-gray-800:hover,
     a.bg-stone-900:hover,
     a.bg-stone-950:hover {
-        background: linear-gradient(135deg, var(--marte-primary-hover), var(--marte-primary)) !important;
-        box-shadow: 0 6px 18px rgba(225, 29, 72, 0.45) !important;
-        transform: translateY(-1px) !important;
+        background: var(--marte-primary-hover) !important;
+        border-color: var(--marte-primary-hover) !important;
         color: #ffffff !important;
     }
 
@@ -172,13 +173,13 @@
     a.bg-white.border {
         background-color: transparent !important;
         color: var(--marte-text) !important;
-        border: 1px dashed var(--marte-stitch) !important;
+        border: 1px solid var(--marte-border) !important;
         text-transform: uppercase !important;
         font-weight: 600 !important;
         font-size: 0.75rem !important;
         letter-spacing: 0.05em !important;
         padding: 0.75rem 1.5rem !important;
-        transition: all 0.2s ease-in-out !important;
+        transition: all 0.15s ease-in-out !important;
         border-radius: 6px !important;
         display: inline-flex !important;
         align-items: center !important;
@@ -188,13 +189,11 @@
     .bg-white.border:hover,
     button.bg-white:hover,
     a.bg-white.border:hover {
-        border-style: solid !important;
         border-color: var(--marte-primary) !important;
-        background-color: rgba(225, 29, 72, 0.05) !important;
-        box-shadow: 0 0 10px rgba(225, 29, 72, 0.1) !important;
+        background-color: var(--marte-card-hover) !important;
     }
 
-    /* Glowing crimson text links */
+    /* Clean black text links */
     a[class*="text-indigo-"],
     a[class*="text-orange-"],
     .text-indigo-600,
@@ -205,7 +204,7 @@
         font-weight: 700 !important;
         font-size: 0.75rem !important;
         letter-spacing: 0.05em !important;
-        text-decoration: none !important;
+        text-decoration: underline !important;
     }
 
     a[class*="text-indigo-"]:hover,
@@ -213,20 +212,52 @@
     .text-indigo-600:hover,
     .text-indigo-700:hover,
     .text-orange-600:hover {
-        color: var(--marte-primary-hover) !important;
-        text-shadow: 0 0 8px var(--marte-primary-glow) !important;
+        color: var(--marte-text-muted) !important;
     }
 
     /* Navigation header styling */
     nav, .bg-white\/85 {
-        background-color: rgba(19, 19, 22, 0.85) !important;
+        background-color: rgba(255, 255, 255, 0.85) !important;
         backdrop-filter: blur(16px) !important;
         border-bottom: 1px solid var(--marte-border) !important;
     }
 
     header {
-        background-color: rgba(19, 19, 22, 0.5) !important;
-        border-bottom: 1px dashed var(--marte-border) !important;
+        background-color: #ffffff !important;
+        border-bottom: 1px solid var(--marte-border) !important;
+    }
+
+    /* Dropdown alignment & look */
+    .absolute.right-0 {
+        background-color: var(--marte-card) !important;
+        border: 1px solid var(--marte-border) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* Badge and statuses */
+    span[class*="rounded-full"] {
+        border-radius: 4px !important;
+        border: 1px solid var(--marte-border) !important;
+        background-color: #fcfcfb !important;
+        color: var(--marte-text) !important;
+    }
+
+    span[class*="rounded-full"].bg-indigo-100 {
+        border-color: var(--marte-primary) !important;
+        background-color: #fafaf9 !important;
+        color: var(--marte-primary) !important;
+    }
+
+    span[class*="rounded-full"].bg-green-100 {
+        border-color: #10b981 !important;
+        background-color: #ecfdf5 !important;
+        color: #047857 !important;
+    }
+
+    span[class*="rounded-full"].bg-red-100 {
+        border-color: var(--marte-accent) !important;
+        background-color: #fef2f2 !important;
+        color: #b91c1c !important;
     }
 
     /* Modern scrollbars */
@@ -238,12 +269,11 @@
         background: var(--marte-bg);
     }
     ::-webkit-scrollbar-thumb {
-        background: var(--marte-card);
+        background: #e4e4e7;
         border-radius: 4px;
-        border: 1px solid var(--marte-border);
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: var(--marte-primary-glow);
+        background: #d4d4d8;
     }
 }
 
@@ -252,13 +282,13 @@
     .atelier-surface {
         border: 1px dashed var(--marte-stitch) !important;
         background-color: var(--marte-card) !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
         border-radius: 12px !important;
     }
 
     .atelier-soft-surface {
         border: 1px dashed var(--marte-border) !important;
-        background-color: rgba(255, 255, 255, 0.01) !important;
+        background-color: #fcfcfb !important;
         border-radius: 8px !important;
     }
 
@@ -273,12 +303,11 @@
         color: var(--marte-primary) !important;
         text-transform: uppercase !important;
         font-weight: 700;
-        text-decoration: none !important;
-        transition: all 0.2s;
+        text-decoration: underline !important;
+        transition: all 0.15s;
     }
     .atelier-link:hover {
-        color: var(--marte-primary-hover) !important;
-        text-shadow: 0 0 6px var(--marte-primary-glow);
+        color: var(--marte-text-muted) !important;
     }
 
     .atelier-table {

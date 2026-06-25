@@ -66,6 +66,11 @@ class Pedido extends Model
         return $this->hasMany(TicketReclamo::class);
     }
 
+    public function reclamos(): HasMany
+    {
+        return $this->hasMany(Reclamo::class);
+    }
+
     public function historialEstados(): HasMany
     {
         return $this->hasMany(PedidoEstadoHistorial::class)->orderBy('created_at');

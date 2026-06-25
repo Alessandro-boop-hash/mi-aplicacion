@@ -40,4 +40,9 @@ class Cliente extends Model
     {
         return $this->hasMany(TicketReclamo::class);
     }
+
+    public function reclamos(): HasMany
+    {
+        return $this->hasMany(Reclamo::class);
+    }
 }
