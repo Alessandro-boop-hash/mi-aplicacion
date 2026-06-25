@@ -22,6 +22,15 @@ class RegisteredUserController extends Controller
     {
         $role = UserRole::tryFrom($request->role) ?? UserRole::Cliente;
 
+        if ($role === UserRole::Admin) {
+            $expectedCode = env('ADMIN_REGISTRATION_CODE', 'MARTE_SECRET_2026');
+            if ($request->admin_code !== $expectedCode) {
+                return back()->withErrors([
+                    'admin_code' => 'El código de seguridad ingresado es incorrecto o no estás autorizado para crear una cuenta de administrador.'
+                ])->withInput();
+            }
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

@@ -38,6 +38,7 @@ class RoleAccessTest extends TestCase
             'password' => 'password123',
             'password_confirmation' => 'password123',
             'role' => 'admin',
+            'admin_code' => 'MARTE_SECRET_2026',
         ]);
 
         $this->assertDatabaseHas('users', [

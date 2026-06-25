@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" x-data="{ role: 'cliente' }">
         @csrf
 
         <div>
@@ -16,13 +16,20 @@
 
         <div class="mt-4">
             <x-input-label for="role" value="Tipo de cuenta" />
-            <select id="role" name="role" class="block mt-1 w-full rounded-none border-stone-300 bg-white shadow-none transition focus:border-stone-950 focus:ring-0 text-sm font-bold">
+            <select id="role" name="role" x-model="role" class="block mt-1 w-full rounded-none border-stone-300 bg-white shadow-none transition focus:border-stone-950 focus:ring-0 text-sm font-bold">
                 <option value="cliente">Cliente</option>
                 <option value="admin">Administrador</option>
             </select>
             <p class="mt-1 text-xs text-stone-500 font-bold uppercase tracking-wider">
                 Selecciona tu rol para ingresar al sistema.
             </p>
+        </div>
+
+        <!-- Conditional admin registration code (Only visible if Admin is chosen) -->
+        <div class="mt-4 animate-fade-in" x-show="role === 'admin'" x-transition style="display: none;">
+            <x-input-label for="admin_code" value="Código de Seguridad Administrador" />
+            <x-text-input id="admin_code" class="block mt-1 w-full" type="password" name="admin_code" placeholder="Ingresa el código del negocio" />
+            <x-input-error :messages="$errors->get('admin_code')" class="mt-2" />
         </div>
 
         <div class="mt-4">
