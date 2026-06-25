@@ -20,11 +20,13 @@ class RegisteredUserController extends Controller
 
     public function store(RegisterRequest $request): RedirectResponse
     {
+        $role = UserRole::tryFrom($request->role) ?? UserRole::Cliente;
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'role' => UserRole::Cliente,
+            'role' => $role,
         ]);
 
         event(new Registered($user));

@@ -30,19 +30,19 @@ class RoleAccessTest extends TestCase
         ]);
     }
 
-    public function test_public_registration_cannot_assign_staff_role(): void
+    public function test_public_registration_can_assign_admin_role(): void
     {
         $this->post('/register', [
-            'name' => 'Intruso Admin',
-            'email' => 'intruso@test.com',
+            'name' => 'Admin Test',
+            'email' => 'admin.test@test.com',
             'password' => 'password123',
             'password_confirmation' => 'password123',
             'role' => 'admin',
         ]);
 
         $this->assertDatabaseHas('users', [
-            'email' => 'intruso@test.com',
-            'role' => UserRole::Cliente->value,
+            'email' => 'admin.test@test.com',
+            'role' => UserRole::Admin->value,
         ]);
     }
 

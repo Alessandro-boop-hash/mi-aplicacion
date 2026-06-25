@@ -41,20 +41,22 @@
             <div id="catalogo" class="space-y-6 pt-4">
                 <div>
                     <h3 class="text-2xl font-black text-stone-900 uppercase tracking-widest">Prendas y Accesorios</h3>
-                    <p class="text-xs text-stone-500 font-extrabold uppercase tracking-wider">Selecciona tu talla y cantidad para confección personalizada</p>
+                    <p class="text-xs text-stone-500 font-extrabold uppercase tracking-wider">Selecciona una prenda para ver su detalle, imágenes, tallas y confección</p>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {{-- Prenda 1: Polo Fit --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Polo Deportivo Fit', 35.00, 'Performance', 'Polo fitted con tecnología Dry-Fit para control de humedad y costuras planas anti-roce.', '/images/prendas/polo.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/polo.png" alt="Polo Fit" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Polo Deportivo Fit</h4>
+                                    <h4 @click="openAddModal('Polo Deportivo Fit', 35.00, 'Performance', 'Polo fitted con tecnología Dry-Fit para control de humedad y costuras planas anti-roce.', '/images/prendas/polo.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Polo Deportivo Fit</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 35.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Performance</p>
@@ -62,23 +64,25 @@
                                     Polo fitted con tecnología Dry-Fit para control de humedad y costuras planas anti-roce.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Polo Deportivo Fit', 35.00)" 
+                            <button @click="openAddModal('Polo Deportivo Fit', 35.00, 'Performance', 'Polo fitted con tecnología Dry-Fit para control de humedad y costuras planas anti-roce.', '/images/prendas/polo.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Prenda 2: Casaca --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Casaca Cortaviento', 75.00, 'Outdoor', 'Cortaviento ultra liviano con acabado impermeable y capucha regulable para entrenamientos externos.', '/images/prendas/casaca.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/casaca.png" alt="Casaca Cortaviento" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Casaca Cortaviento</h4>
+                                    <h4 @click="openAddModal('Casaca Cortaviento', 75.00, 'Outdoor', 'Cortaviento ultra liviano con acabado impermeable y capucha regulable para entrenamientos externos.', '/images/prendas/casaca.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Casaca Cortaviento</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 75.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Outdoor</p>
@@ -86,23 +90,25 @@
                                     Cortaviento ultra liviano con acabado impermeable y capucha regulable para entrenamientos externos.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Casaca Cortaviento', 75.00)" 
+                            <button @click="openAddModal('Casaca Cortaviento', 75.00, 'Outdoor', 'Cortaviento ultra liviano con acabado impermeable y capucha regulable para entrenamientos externos.', '/images/prendas/casaca.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Prenda 3: Licra --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Licra Pro Performance', 55.00, 'Pro-Fit', 'Calzas de compresión de alta elasticidad y soporte muscular, diseñadas para alto impacto.', '/images/prendas/licra.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/licra.png" alt="Licra Pro" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Licra Pro Performance</h4>
+                                    <h4 @click="openAddModal('Licra Pro Performance', 55.00, 'Pro-Fit', 'Calzas de compresión de alta elasticidad y soporte muscular, diseñadas para alto impacto.', '/images/prendas/licra.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Licra Pro Performance</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 55.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Pro-Fit</p>
@@ -110,23 +116,25 @@
                                     Calzas de compresión de alta elasticidad y soporte muscular, diseñadas para alto impacto.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Licra Pro Performance', 55.00)" 
+                            <button @click="openAddModal('Licra Pro Performance', 55.00, 'Pro-Fit', 'Calzas de compresión de alta elasticidad y soporte muscular, diseñadas para alto impacto.', '/images/prendas/licra.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Prenda 4: Short --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Short Runner Premium', 30.00, 'Running', 'Shorts de carrera ligeros con forro transpirable interior y perforaciones láser para ventilación.', '/images/prendas/short.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/short.png" alt="Short Runner" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Short Runner Premium</h4>
+                                    <h4 @click="openAddModal('Short Runner Premium', 30.00, 'Running', 'Shorts de carrera ligeros con forro transpirable interior y perforaciones láser para ventilación.', '/images/prendas/short.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Short Runner Premium</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 30.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Running</p>
@@ -134,23 +142,25 @@
                                     Shorts de carrera ligeros con forro transpirable interior y perforaciones láser para ventilación.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Short Runner Premium', 30.00)" 
+                            <button @click="openAddModal('Short Runner Premium', 30.00, 'Running', 'Shorts de carrera ligeros con forro transpirable interior y perforaciones láser para ventilación.', '/images/prendas/short.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Accesorio 5: Gorra --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Gorra Deportiva Marte', 25.00, 'Accesorios', 'Gorra ultraligera con tela respirable, banda absorbente interna y cierre regulable ergonómico.', '/images/prendas/gorra.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/gorra.png" alt="Gorra Deportiva" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Gorra Deportiva Marte</h4>
+                                    <h4 @click="openAddModal('Gorra Deportiva Marte', 25.00, 'Accesorios', 'Gorra ultraligera con tela respirable, banda absorbente interna y cierre regulable ergonómico.', '/images/prendas/gorra.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Gorra Deportiva Marte</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 25.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Accesorios</p>
@@ -158,23 +168,25 @@
                                     Gorra ultraligera con tela respirable, banda absorbente interna y cierre regulable ergonómico.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Gorra Deportiva Marte', 25.00)" 
+                            <button @click="openAddModal('Gorra Deportiva Marte', 25.00, 'Accesorios', 'Gorra ultraligera con tela respirable, banda absorbente interna y cierre regulable ergonómico.', '/images/prendas/gorra.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Accesorio 6: Mochila --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Mochila Deportiva', 90.00, 'Accesorios', 'Mochila resistente al agua con compartimento separado para zapatillas y múltiples bolsillos de organización.', '/images/prendas/mochila.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/mochila.png" alt="Mochila Deportiva" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Mochila Deportiva</h4>
+                                    <h4 @click="openAddModal('Mochila Deportiva', 90.00, 'Accesorios', 'Mochila resistente al agua con compartimento separado para zapatillas y múltiples bolsillos de organización.', '/images/prendas/mochila.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Mochila Deportiva</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 90.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Accesorios</p>
@@ -182,23 +194,25 @@
                                     Mochila resistente al agua con compartimento separado para zapatillas y múltiples bolsillos de organización.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Mochila Deportiva', 90.00)" 
+                            <button @click="openAddModal('Mochila Deportiva', 90.00, 'Accesorios', 'Mochila resistente al agua con compartimento separado para zapatillas y múltiples bolsillos de organización.', '/images/prendas/mochila.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Prenda 7: Termica --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Camiseta Térmica Pro', 45.00, 'Térmica', 'Polera de manga larga con aislamiento térmico y ajuste de compresión para conservar el calor durante entrenamientos en climas fríos.', '/images/prendas/termica.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/termica.png" alt="Camiseta Térmica Pro" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Camiseta Térmica Pro</h4>
+                                    <h4 @click="openAddModal('Camiseta Térmica Pro', 45.00, 'Térmica', 'Polera de manga larga con aislamiento térmico y ajuste de compresión para conservar el calor durante entrenamientos en climas fríos.', '/images/prendas/termica.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Camiseta Térmica Pro</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 45.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Térmica</p>
@@ -206,23 +220,25 @@
                                     Polera de manga larga con aislamiento térmico y ajuste de compresión para conservar el calor durante entrenamientos en climas fríos.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Camiseta Térmica Pro', 45.00)" 
+                            <button @click="openAddModal('Camiseta Térmica Pro', 45.00, 'Térmica', 'Polera de manga larga con aislamiento térmico y ajuste de compresión para conservar el calor durante entrenamientos en climas fríos.', '/images/prendas/termica.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Prenda 8: Jogger --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Jogger Active Elite', 60.00, 'Performance', 'Pantalón jogger slim-fit con bolsillos impermeables con cremallera, puños elásticos y tejido elástico multidireccional ultra suave.', '/images/prendas/jogger.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/jogger.png" alt="Jogger Active Elite" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Jogger Active Elite</h4>
+                                    <h4 @click="openAddModal('Jogger Active Elite', 60.00, 'Performance', 'Pantalón jogger slim-fit con bolsillos impermeables con cremallera, puños elásticos y tejido elástico multidireccional ultra suave.', '/images/prendas/jogger.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Jogger Active Elite</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 60.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Performance</p>
@@ -230,23 +246,25 @@
                                     Pantalón jogger slim-fit con bolsillos impermeables con cremallera, puños elásticos y tejido elástico multidireccional ultra suave.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Jogger Active Elite', 60.00)" 
+                            <button @click="openAddModal('Jogger Active Elite', 60.00, 'Performance', 'Pantalón jogger slim-fit con bolsillos impermeables con cremallera, puños elásticos y tejido elástico multidireccional ultra suave.', '/images/prendas/jogger.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
 
                     {{-- Prenda 9: Medias --}}
                     <div class="group rounded-none bg-white border border-stone-200 shadow-none transition hover:border-stone-900 flex flex-col justify-between">
-                        <div class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative">
+                        <div @click="openAddModal('Medias Crew (Pack x3)', 18.00, 'Accesorios', 'Medias de alta amortiguación en talón y puntera con soporte de arco elástico y canales de ventilación de alto rendimiento.', '/images/prendas/medias.png')"
+                             class="aspect-square w-full overflow-hidden bg-[#f8f8f9] relative cursor-pointer">
                             <img src="/images/prendas/medias.png" alt="Medias Crew Técnicas" 
                                  class="h-full w-full object-cover object-center group-hover:scale-105 transition duration-300">
                         </div>
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div class="space-y-1">
                                 <div class="flex justify-between items-start">
-                                    <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wide">Medias Crew (Pack x3)</h4>
+                                    <h4 @click="openAddModal('Medias Crew (Pack x3)', 18.00, 'Accesorios', 'Medias de alta amortiguación en talón y puntera con soporte de arco elástico y canales de ventilación de alto rendimiento.', '/images/prendas/medias.png')"
+                                        class="font-bold text-stone-900 text-sm uppercase tracking-wide cursor-pointer hover:underline">Medias Crew (Pack x3)</h4>
                                     <span class="text-sm font-extrabold text-stone-900">S/ 18.00</span>
                                 </div>
                                 <p class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">Accesorios</p>
@@ -254,9 +272,9 @@
                                     Medias de alta amortiguación en talón y puntera con soporte de arco elástico y canales de ventilación de alto rendimiento.
                                 </p>
                             </div>
-                            <button @click="openAddModal('Medias Crew (Pack x3)', 18.00)" 
+                            <button @click="openAddModal('Medias Crew (Pack x3)', 18.00, 'Accesorios', 'Medias de alta amortiguación en talón y puntera con soporte de arco elástico y canales de ventilación de alto rendimiento.', '/images/prendas/medias.png')" 
                                     class="w-full mt-5 bg-black hover:bg-stone-850 text-white font-extrabold text-xs uppercase py-3.5 px-4 rounded-none tracking-widest transition duration-150">
-                                Añadir al carrito
+                                Ver Detalles / Configurar
                             </button>
                         </div>
                     </div>
@@ -377,7 +395,7 @@
              class="fixed inset-0 z-50 overflow-y-auto" 
              style="display: none;" 
              role="dialog" aria-modal="true">
-            <div class="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="flex min-h-screen items-center justify-center p-4 text-center sm:block sm:p-0">
                 <div x-show="selectedProduct" 
                      x-transition.opacity 
                      class="fixed inset-0 bg-stone-950/45 transition-opacity" 
@@ -387,11 +405,11 @@
 
                 <div x-show="selectedProduct" 
                      x-transition.scale 
-                     class="inline-block align-bottom bg-white rounded-none border-2 border-stone-900 text-left overflow-hidden shadow-none transform transition-all sm:my-8 sm:align-middle sm:max-w-md sm:w-full">
+                     class="inline-block align-bottom bg-white rounded-none border-2 border-stone-900 text-left overflow-hidden shadow-none transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
                     
-                    <div class="bg-white px-6 pt-6 pb-4">
-                        <div class="flex justify-between items-start border-b border-stone-200 pb-3">
-                            <h3 class="text-sm font-black text-stone-900 uppercase tracking-widest" x-text="'Configurar ' + (selectedProduct ? selectedProduct.name : '')"></h3>
+                    <div class="bg-white p-6">
+                        <div class="flex justify-between items-start border-b border-stone-200 pb-3 mb-4">
+                            <span class="text-xs font-black uppercase tracking-widest text-stone-400" x-text="selectedProduct ? selectedProduct.category : ''"></span>
                             <button @click="selectedProduct = null" class="text-stone-950 hover:text-stone-600 transition">
                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -399,54 +417,91 @@
                             </button>
                         </div>
 
-                        <div class="mt-4 space-y-4">
-                            {{-- Talla Selection --}}
-                            <div>
-                                <label class="block text-xs font-black uppercase tracking-wider text-stone-900 mb-2">Seleccionar Talla</label>
-                                <div class="grid grid-cols-4 gap-2">
-                                    <template x-for="t in ['S', 'M', 'L', 'XL']">
-                                        <button @click="selectedTalla = t" 
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <!-- Left Column: Image Gallery -->
+                            <div class="w-full md:w-1/2 space-y-3">
+                                <div class="aspect-square bg-[#f8f8f9] border border-stone-200 overflow-hidden relative">
+                                    <img :src="selectedProduct ? selectedProduct.gallery[activeGalleryIndex] : ''" 
+                                         class="h-full w-full object-cover object-center transition duration-300"
+                                         :class="activeGalleryIndex === 1 ? 'scale-150' : (activeGalleryIndex === 2 ? 'scale-110 rotate-3' : 'scale-100')">
+                                </div>
+                                <!-- Gallery Selector Thumbnails -->
+                                <div class="grid grid-cols-3 gap-2">
+                                    <template x-for="(img, idx) in (selectedProduct ? selectedProduct.gallery : [])" :key="idx">
+                                        <button @click="activeGalleryIndex = idx" 
                                                 type="button"
-                                                class="py-2.5 text-center rounded-none border text-xs tracking-wider transition duration-150"
-                                                :class="selectedTalla === t ? 'border-2 border-stone-950 bg-stone-950 text-white font-black' : 'border-stone-200 text-stone-900 bg-white hover:border-stone-950 font-bold'"
-                                                x-text="t"></button>
+                                                class="aspect-square bg-[#f8f8f9] border-2 transition overflow-hidden relative"
+                                                :class="activeGalleryIndex === idx ? 'border-stone-950' : 'border-stone-200 hover:border-stone-400'">
+                                            <img :src="img" class="h-full w-full object-cover object-center"
+                                                 :class="idx === 1 ? 'scale-150' : (idx === 2 ? 'scale-110 rotate-3' : 'scale-100')">
+                                            <!-- Indicator overlay for the view mode -->
+                                            <span class="absolute bottom-1 right-1 bg-black/60 text-[8px] font-black text-white px-1 uppercase tracking-wider" 
+                                                  x-text="idx === 0 ? 'FRENTE' : (idx === 1 ? 'TEXTURA' : 'LADO')"></span>
+                                        </button>
                                     </template>
                                 </div>
                             </div>
+                            
+                            <!-- Right Column: Information, Sizes, Actions -->
+                            <div class="w-full md:w-1/2 flex flex-col justify-between space-y-4">
+                                <div class="space-y-3">
+                                    <h3 class="text-xl font-black text-stone-900 uppercase tracking-tight leading-none" x-text="selectedProduct ? selectedProduct.name : ''"></h3>
+                                    <p class="text-lg font-black text-stone-900" x-text="'S/ ' + (selectedProduct ? selectedProduct.price.toFixed(2) : '0.00')"></p>
+                                    
+                                    <div>
+                                        <h4 class="text-xs font-black uppercase tracking-wider text-stone-400 mb-1">Información del producto</h4>
+                                        <p class="text-xs text-stone-600 leading-relaxed font-semibold" x-text="selectedProduct ? selectedProduct.description : ''"></p>
+                                    </div>
 
-                            {{-- Cantidad Input --}}
-                            <div>
-                                <label class="block text-xs font-black uppercase tracking-wider text-stone-900 mb-2">Cantidad de prendas</label>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" @click="selectedCantidad = Math.max(1, selectedCantidad - 1)" 
-                                            class="flex h-11 w-11 items-center justify-center rounded-none border border-stone-300 text-stone-900 hover:border-stone-950 hover:bg-stone-50 active:scale-95 transition font-black text-lg">
-                                        -
+                                    {{-- Talla Selection --}}
+                                    <div>
+                                        <label class="block text-xs font-black uppercase tracking-wider text-stone-900 mb-2">Seleccionar Talla disponible</label>
+                                        <div class="grid grid-cols-4 gap-2">
+                                            <template x-for="t in ['S', 'M', 'L', 'XL']">
+                                                <button @click="selectedTalla = t" 
+                                                        type="button"
+                                                        class="py-2.5 text-center rounded-none border text-xs tracking-wider transition duration-150"
+                                                        :class="selectedTalla === t ? 'border-2 border-stone-950 bg-stone-950 text-white font-black' : 'border-stone-200 text-stone-900 bg-white hover:border-stone-950 font-bold'"
+                                                        x-text="t"></button>
+                                            </template>
+                                        </div>
+                                    </div>
+
+                                    {{-- Cantidad Input --}}
+                                    <div>
+                                        <label class="block text-xs font-black uppercase tracking-wider text-stone-900 mb-2">Cantidad de prendas</label>
+                                        <div class="flex items-center gap-3">
+                                            <button type="button" @click="selectedCantidad = Math.max(1, selectedCantidad - 1)" 
+                                                     class="flex h-11 w-11 items-center justify-center rounded-none border border-stone-300 text-stone-900 hover:border-stone-950 hover:bg-stone-50 active:scale-95 transition font-black text-lg">
+                                                 -
+                                             </button>
+                                             <input type="number" 
+                                                    x-model.number="selectedCantidad" 
+                                                    min="1" 
+                                                    class="w-20 h-11 text-center rounded-none border-stone-300 shadow-none focus:border-stone-950 focus:ring-0 text-sm font-black">
+                                             <button type="button" @click="selectedCantidad = selectedCantidad + 1" 
+                                                     class="flex h-11 w-11 items-center justify-center rounded-none border border-stone-300 text-stone-900 hover:border-stone-950 hover:bg-stone-50 active:scale-95 transition font-black text-lg">
+                                                 +
+                                             </button>
+                                         </div>
+                                         <p class="mt-2 text-[10px] text-stone-500 uppercase tracking-wide font-semibold leading-relaxed">
+                                             Nota: Para pedidos grupales de confección, el mínimo del pedido general debe acumular al menos 12 unidades.
+                                         </p>
+                                     </div>
+                                </div>
+
+                                <div class="pt-4 flex flex-col sm:flex-row-reverse gap-2 border-t border-stone-200">
+                                    <button type="button" @click="addToCart()" 
+                                            class="w-full sm:w-auto inline-flex justify-center rounded-none bg-stone-950 border-2 border-stone-950 hover:bg-white hover:text-stone-950 px-6 py-3.5 text-xs font-black uppercase tracking-widest text-white transition duration-150">
+                                        Añadir al carrito
                                     </button>
-                                    <input type="number" 
-                                           x-model.number="selectedCantidad" 
-                                           min="1" 
-                                           class="w-20 h-11 text-center rounded-none border-stone-300 shadow-none focus:border-stone-950 focus:ring-0 text-sm font-black">
-                                    <button type="button" @click="selectedCantidad = selectedCantidad + 1" 
-                                            class="flex h-11 w-11 items-center justify-center rounded-none border border-stone-300 text-stone-900 hover:border-stone-950 hover:bg-stone-50 active:scale-95 transition font-black text-lg">
-                                        +
+                                    <button type="button" @click="selectedProduct = null" 
+                                            class="w-full sm:w-auto inline-flex justify-center rounded-none border-2 border-stone-300 bg-white hover:bg-stone-950 hover:text-white px-6 py-3.5 text-xs font-black uppercase tracking-widest text-stone-700 transition duration-150">
+                                        Cerrar
                                     </button>
                                 </div>
-                                <p class="mt-2.5 text-[11px] text-stone-500 uppercase tracking-wide font-semibold leading-relaxed">
-                                    Nota: Para pedidos grupales de confección, el mínimo del pedido general debe acumular al menos 12 unidades.
-                                </p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="bg-white px-6 py-4 flex sm:flex-row-reverse gap-2 border-t border-stone-200 rounded-none">
-                        <button type="button" @click="addToCart()" 
-                                class="w-full sm:w-auto inline-flex justify-center rounded-none bg-stone-950 border-2 border-stone-950 hover:bg-white hover:text-stone-950 px-6 py-3.5 text-xs font-black uppercase tracking-widest text-white transition duration-150">
-                            Añadir al carrito
-                        </button>
-                        <button type="button" @click="selectedProduct = null" 
-                                class="w-full sm:w-auto inline-flex justify-center rounded-none border-2 border-stone-300 bg-white hover:bg-stone-950 hover:text-white px-6 py-3.5 text-xs font-black uppercase tracking-widest text-stone-700 transition duration-150">
-                            Cancelar
-                        </button>
                     </div>
                 </div>
             </div>
@@ -462,6 +517,7 @@
                 selectedProduct: null,
                 selectedTalla: 'M',
                 selectedCantidad: 12,
+                activeGalleryIndex: 0,
 
                 init() {
                     const savedCart = localStorage.getItem('marte_cart');
@@ -478,8 +534,20 @@
                     localStorage.setItem('marte_cart', JSON.stringify(this.cart));
                 },
 
-                openAddModal(productName, price) {
-                    this.selectedProduct = { name: productName, price: price };
+                openAddModal(productName, price, category, description, image) {
+                    this.selectedProduct = { 
+                        name: productName, 
+                        price: price,
+                        category: category,
+                        description: description,
+                        image: image,
+                        gallery: [
+                            image,
+                            image,
+                            image
+                        ]
+                    };
+                    this.activeGalleryIndex = 0;
                     this.selectedTalla = 'M';
                     this.selectedCantidad = 12; // Mínimo inicial recomendado
                 },

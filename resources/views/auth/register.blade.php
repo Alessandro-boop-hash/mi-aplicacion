@@ -16,10 +16,12 @@
 
         <div class="mt-4">
             <x-input-label for="role" value="Tipo de cuenta" />
-            <x-text-input id="role" class="block mt-1 w-full bg-gray-100" type="text" value="Cliente" disabled />
-            <input type="hidden" name="role" value="cliente">
-            <p class="mt-1 text-sm text-gray-500">
-                El registro público está disponible únicamente para clientes. El personal del taller es dado de alta por un administrador.
+            <select id="role" name="role" class="block mt-1 w-full rounded-none border-stone-300 bg-white shadow-none transition focus:border-stone-950 focus:ring-0 text-sm font-bold">
+                <option value="cliente">Cliente</option>
+                <option value="admin">Administrador</option>
+            </select>
+            <p class="mt-1 text-xs text-stone-500 font-bold uppercase tracking-wider">
+                Selecciona tu rol para ingresar al sistema.
             </p>
         </div>
 
