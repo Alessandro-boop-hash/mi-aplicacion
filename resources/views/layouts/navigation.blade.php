@@ -4,8 +4,8 @@
             <div class="flex">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-3">
-                        <x-application-logo class="block h-10 w-10 text-indigo-700" />
-                        <span class="hidden text-sm font-bold text-stone-900 lg:block">MARTE</span>
+                        <x-application-logo class="block h-10 w-10 text-stone-900" />
+                        <span class="hidden text-sm font-black text-stone-900 uppercase tracking-widest lg:block">MARTE</span>
                     </a>
                 </div>
 
@@ -15,13 +15,13 @@
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <span class="me-4 hidden rounded-full bg-stone-100 px-3 py-1 text-xs font-semibold text-stone-600 lg:inline">
+                <span class="me-4 hidden rounded-none bg-stone-950 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white lg:inline">
                     {{ Auth::user()->role->label() }}
                 </span>
 
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center gap-2 rounded-md border border-stone-200 bg-white px-3 py-2 text-sm font-semibold leading-4 text-stone-600 shadow-sm transition hover:border-indigo-200 hover:text-stone-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        <button class="inline-flex items-center gap-2 rounded-none border border-stone-200 bg-white px-3 py-2 text-sm font-bold uppercase tracking-widest text-stone-900 transition hover:border-stone-950 hover:text-stone-950 focus:outline-none focus:ring-1 focus:ring-stone-950">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -51,7 +51,7 @@
             </div>
 
             <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center rounded-md border border-stone-200 bg-white p-2 text-stone-500 shadow-sm transition hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <button @click="open = ! open" class="inline-flex items-center justify-center rounded-none border border-stone-200 bg-white p-2 text-stone-900 transition hover:text-stone-600 focus:outline-none focus:ring-1 focus:ring-stone-950">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
