@@ -4,7 +4,7 @@
 @endphp
 
 @if ($user->isAdmin())
-    <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.*')">
+    <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
         Panel admin
     </x-responsive-nav-link>
     <x-responsive-nav-link :href="route('admin.usuarios.index')" :active="request()->routeIs('admin.usuarios.*')">
@@ -22,11 +22,11 @@
 @endif
 
 @if ($role === \App\Enums\UserRole::Cliente)
+    <x-responsive-nav-link :href="route('cliente.inicio')" :active="request()->routeIs('cliente.inicio')">
+        Inicio
+    </x-responsive-nav-link>
     <x-responsive-nav-link :href="route('cliente.pedidos.index')" :active="request()->routeIs('cliente.pedidos.index') || request()->routeIs('cliente.pedidos.show')">
         Mis pedidos
-    </x-responsive-nav-link>
-    <x-responsive-nav-link :href="route('cliente.pedidos.create')" :active="request()->routeIs('cliente.pedidos.create')">
-        Nuevo pedido
     </x-responsive-nav-link>
     <x-responsive-nav-link :href="route('cliente.reclamos.index')" :active="request()->routeIs('cliente.reclamos.*')">
         Mis reclamos

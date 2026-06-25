@@ -19,12 +19,12 @@
                         Prendas deportivas de alta resistencia y rendimiento. Diseños premium adaptados a las exigencias de tu marca o equipo corporativo.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-3">
-                        <a href="{{ route('cliente.pedidos.create') }}" class="inline-flex items-center justify-center rounded-lg bg-orange-500 px-5 py-3 text-sm font-bold text-white shadow-md hover:bg-orange-600 transition duration-150">
-                            Registrar Nuevo Pedido (Manual)
-                        </a>
-                        <button @click="isCartOpen = true" class="inline-flex items-center justify-center rounded-lg border border-stone-700 bg-stone-900/50 px-5 py-3 text-sm font-bold text-stone-300 hover:bg-stone-800 transition duration-150">
+                        <button @click="isCartOpen = true" class="inline-flex items-center justify-center rounded-lg bg-orange-500 px-5 py-3 text-sm font-bold text-white shadow-md hover:bg-orange-600 transition duration-150">
                             Ver Carrito de Compras
                         </button>
+                        <a href="#catalogo" class="inline-flex items-center justify-center rounded-lg border border-stone-700 bg-stone-900/50 px-5 py-3 text-sm font-bold text-stone-300 hover:bg-stone-800 transition duration-150">
+                            Explorar Catálogo
+                        </a>
                     </div>
                 </div>
                 {{-- Decorative Mars circles --}}
@@ -33,7 +33,7 @@
             </div>
 
             {{-- Catalog Section --}}
-            <div class="space-y-6">
+            <div id="catalogo" class="space-y-6">
                 <div>
                     <h3 class="text-2xl font-bold text-gray-900">Muestras de Prendas y Accesorios</h3>
                     <p class="text-sm text-gray-500">Configura la talla y cantidad de cada prenda para añadirlos a tu carrito de producción.</p>

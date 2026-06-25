@@ -4,7 +4,7 @@
 @endphp
 
 @if ($user->isAdmin())
-    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.*')">
+    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
         Panel admin
     </x-nav-link>
     <x-nav-link :href="route('admin.usuarios.index')" :active="request()->routeIs('admin.usuarios.*')">
@@ -27,9 +27,6 @@
     </x-nav-link>
     <x-nav-link :href="route('cliente.pedidos.index')" :active="request()->routeIs('cliente.pedidos.index') || request()->routeIs('cliente.pedidos.show')">
         Mis pedidos
-    </x-nav-link>
-    <x-nav-link :href="route('cliente.pedidos.create')" :active="request()->routeIs('cliente.pedidos.create')">
-        Nuevo pedido
     </x-nav-link>
     <x-nav-link :href="route('cliente.reclamos.index')" :active="request()->routeIs('cliente.reclamos.*')">
         Mis reclamos
